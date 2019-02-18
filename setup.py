@@ -14,7 +14,7 @@ with open('Pipfile.lock') as fd:
 setup(
     name='csv-export-gsheets',
     version=environ.get('TRAVIS_TAG', '0.0.0'),
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     install_requires=install_requires,
     extras_require={
         'test': tests_require,
