@@ -19,7 +19,7 @@ before_script:
   - flake8 csv_expot_gsheets
 
 script:
-  - pytest -vv -x --cov csv_expot_gsheets --cov-report=term tests
+  - pytest -vv -x tests
 
 stages:
   - test
