@@ -1,0 +1,5 @@
+include *.md *.txt *.rst
+
+recursive-include csv_export_gsheets *
+
+recursive-exclude * *.py[co]
