@@ -1,0 +1,12 @@
+* text=auto eol=lf diff=word
+*.gif binary
+*.jpg binary
+*.eot binary
+*.ttf binary
+*.png binary
+*.otf binary
+*.tif binary
+*.woff binary
+
+.gitignore      export-ignore
+.gitattributes  export-ignore
