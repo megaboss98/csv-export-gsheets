@@ -6,4 +6,5 @@
 .python-version
 *.egg-info
 __pycache__/*
+build/*
 dist/*
