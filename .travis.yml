@@ -1,0 +1,41 @@
+language: python
+sudo: false
+cache: pip
+
+python:
+  - '3.5'
+  - '3.5-dev'
+  - '3.6'
+  - '3.6-dev'
+  - '3.7-dev'
+  - 'pypy3.5'
+
+install:
+  - pip install pipenv
+  - pipenv --python ${TRAVIS_PYTHON_VERSION}
+  - pipenv sync --dev
+
+before_script:
+  - flake8 csv_expot_gsheets
+
+script:
+  - pytest -vv -x --cov csv_expot_gsheets --cov-report=term tests
+
+stages:
+  - test
+  - deploy
+
+jobs:
+  include:
+    - stage: deploy
+      python: '3.6'
+      install: skip
+      script: skip
+      deploy:
+        provider: pypi
+        user: dlancer
+        password:
+          secure: "WM25jC1uKnNHordN3jUJe8MY+sR0GDnfFoQPYnvAbRuSMzhYGrjw9Q1bynibkBSvNmZyCb+njYSzAqowP4L/QGNlD4PP7vfIfN4ANbLeoY4pYNGIt+5QS0Q0aE1wDRrjkqtNSg72DTN0GJ6S6LDZQ52P0SMeoDI1yOtD99+CmTrKW/CQadSEC658Vu6YehOZ5YO5py74109jdIhPuvfVI/jlKSsgLqVKHLEoSNeAwfhoMOPn2qnVaVIiDuZPX5foPI1Y9Db8gAlpkhmC9o5ymaDI8qBFoixFsvGcT6KbG8h62Lb1Lv6GNplIYmamPYTkzHJ0h1cLgX4CLSQGIcv0B4ZaR2TDmUoaPQHvYKN7MKiNNZ3E9tJ1IkOT31tCo1fkkLSl1UXkJKDN+Wu0Sy+tRJ5gGAorIxRKvgOc1iUxCNuo+1Ef0fjt5iXaxM737kj/SP7ihBQcWazfhbYTUlCB0qZFHmsrx0jXP8odFYNcv7F5znk6CaRyXtjojRXOK8Z4oBz5J1uieF6pDg6nxYtMcsb4R15K3KkAE35CRfsmdYIW4af9WfNhnn2CLq7gWVpqSCrDrpC1/VyDZaAE/V8lDPk82dlg7ff24UT5LTGdcv5tNYsKlQUNpzmL2vZFqPGXYKAH4XSCjNzY+2he+oAk/9A7Pzdj7ZhN80AEoHGk9Tk="
+        on:
+          tags: true
+        distributions: sdist bdist_wheel
