@@ -41,13 +41,13 @@ Usage
 
 Before you start you should:
 
- 1. Create Google Account Service key (use JSON format):
+1. Create Google Account Service key (use JSON format):
 
-    https://gspread.readthedocs.io/en/latest/oauth2.html
+   https://gspread.readthedocs.io/en/latest/oauth2.html
 
- 2. Create new Google Spreadsheet
+2. Create new Google Spreadsheet
 
- 3. Share this spreadsheet with email from created service account file.
+3. Share this spreadsheet with email from created service account file.
 
 From command line::
 
