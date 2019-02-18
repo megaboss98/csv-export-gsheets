@@ -3,7 +3,7 @@ import gspread
 from gspread import utils
 
 from .utils.conf import load_config
-from .utils.credentials import load_credentials_from_json
+from .utils.credentials import load_credentials_from_json, load_credentials_from_dict
 
 
 def export_csv(source=None, url=None, cell=None, credentials=None, config=None):
@@ -30,7 +30,13 @@ def export_csv(source=None, url=None, cell=None, credentials=None, config=None):
         cell = cell if cell is not None else 'A1'
 
     # TODO: add other types of credentials
-    credentials = load_credentials_from_json(credentials)
+    if isinstance(credentials, dict):
+        credentials = load_credentials_from_dict(credentials)
+    elif isinstance(credentials, str):
+        credentials = load_credentials_from_json(credentials)
+    else:
+        credentials = None
+
     if credentials is None:
         raise ValueError('invalid credentials')
 
