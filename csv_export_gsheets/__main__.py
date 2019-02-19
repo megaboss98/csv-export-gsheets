@@ -18,9 +18,9 @@ def main(args=None):
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--source', default=None, help='path to source CSV file')
-    parser.add_argument('--url', default=None, help='destination Google Sheet url')
-    parser.add_argument('--cell', default=None, help='destination Google Sheet cell')
-    parser.add_argument('--credentials', default=None, help='path to google service credentials file')
+    parser.add_argument('--url', default=None, help='destination sheet url')
+    parser.add_argument('--cell', default=None, help="destination sheet cell (can include tab name: 'MyTab!A1')")
+    parser.add_argument('--credentials', default=None, help='path to google service account credentials file')
     parser.add_argument('--config', default=None, help='path to config file')
     args = parser.parse_args()
 

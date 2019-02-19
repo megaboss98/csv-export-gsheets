@@ -1,4 +1,4 @@
-Export CSV files to Google Sheets
+Export CSV files to Google Spreadsheets
 =================================
 
 Simple CSV export wrapper for gspread package https://gspread.readthedocs.io.
@@ -41,11 +41,11 @@ Usage
 
 Before you start you should:
 
-1. Create Google Account Service key (use JSON format):
+1. Create Google Service Account key (use JSON format):
 
    https://gspread.readthedocs.io/en/latest/oauth2.html
 
-2. Create new Google Spreadsheet
+2. Create new spreadsheet in the Google Spreadsheets.
 
 3. Share this spreadsheet with email from created service account file.
 
@@ -60,8 +60,10 @@ From python code:
 
     from csv_export_gsheets.export import export_csv
 
-    # src - path to csv file
-    # url - google sheet url
-    # credentials - path to service account credentials or dict object
-    export_csv(source=src, url=url, credentials=credentials)
+    # src - path to source CSV file or StringIO object
+    # url - destination sheet url
+    # cell - destination sheet cell (can include tab name: 'MyTab!A1')
+    # credentials - path to service account credentials or dict
+    # config - path to config file or dict
+    export_csv(source=src, url=url, cell=cell, credentials=credentials, config=config)
 

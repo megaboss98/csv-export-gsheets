@@ -21,5 +21,5 @@ def load_config(config):
             keys = settings.keys()
             for option in REQUIRED_OPTIONS:
                 if option not in keys:
-                    raise ValueError('required option missed {0} '.format(option))
+                    raise ValueError(f'required option missed {option} ')
         return settings
