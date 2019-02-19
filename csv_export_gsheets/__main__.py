@@ -9,7 +9,7 @@ This utility export CSV file to Google Sheets
 
 import sys
 
-from .export import export_csv
+from .gsheet import import_csv
 
 
 def main(args=None):
@@ -31,7 +31,7 @@ def main(args=None):
     config = args.config
 
     try:
-        export_csv(source=source, url=url, cell=cell, credentials=credentials, config=config)
+        import_csv(source=source, url=url, cell=cell, credentials=credentials, config=config)
     except ValueError as e:
         sys.exit(str(e))
 
