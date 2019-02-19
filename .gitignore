@@ -5,6 +5,9 @@
 .DS_Store
 .python-version
 *.egg-info
+.eggs/*
+.data/*
+.key/*
 __pycache__/*
 build/*
 dist/*
