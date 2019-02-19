@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 from codecs import open
-from os import path, environ
+from os import path
 import json
 
 here = path.abspath(path.dirname(__file__))
@@ -13,7 +13,7 @@ with open('Pipfile.lock') as fd:
 
 setup(
     name='csv-export-gsheets',
-    version=environ.get('TRAVIS_TAG', '0.0.0'),
+    use_scm_version=True,
     packages=find_packages(exclude=['tests']),
     install_requires=install_requires,
     extras_require={
