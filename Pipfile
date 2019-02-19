@@ -10,6 +10,7 @@ flake8 = "*"
 isort = "*"
 coverage = "*"
 pytest-cov = "*"
+pygments = "*"
 
 [packages]
 gspread = "*"
