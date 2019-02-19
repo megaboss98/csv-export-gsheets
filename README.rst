@@ -1,7 +1,9 @@
-Export CSV files to Google Spreadsheets
-=================================
+Import/Export CSV files to Google Spreadsheets
+==============================================
 
-Simple CSV export wrapper for gspread package https://gspread.readthedocs.io.
+Simple CSV import/export wrapper for gspread_ package.
+
+.. _gspread: https://gspread.readthedocs.io.
 
 .. image:: https://travis-ci.org/dlancer/csv-export-gsheets.svg?branch=master
     :target: https://travis-ci.org/dlancer/csv-export-gsheets/
@@ -67,3 +69,11 @@ From python code:
     # config - path to config file or dict
     import_csv(source=src, url=url, cell=cell, credentials=credentials, config=config)
 
+..
+
+Please note: destination sheet will be cleared before import.
+
+TODO
+====
+
+- export from google spreadsheet to CSV
