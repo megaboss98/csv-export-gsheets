@@ -8,13 +8,13 @@ from .utils.conf import load_config
 from .utils.credentials import load_credentials_from_json, load_credentials_from_dict
 
 
-def export_csv(source: Optional[Union[str, StringIO]] = None,
+def import_csv(source: Optional[Union[str, StringIO]] = None,
                url: Optional[str] = None,
                cell: Optional[str] = None,
                credentials: Optional[Union[str, dict]] = None,
                config: Optional[Union[str, dict]] = None) -> dict:
     """
-    Export CSV file to Google sheet
+    Import CSV file to Google sheet
 
     :param source: path to source CSV file or StringIO object
     :param url: destination sheet url

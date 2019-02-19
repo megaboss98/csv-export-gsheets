@@ -58,12 +58,12 @@ From python code:
 
 .. code-block:: python
 
-    from csv_export_gsheets.export import export_csv
+    from csv_export_gsheets.gsheet import import_csv
 
     # src - path to source CSV file or StringIO object
     # url - destination sheet url
     # cell - destination sheet cell (can include tab name: 'MyTab!A1')
     # credentials - path to service account credentials or dict
     # config - path to config file or dict
-    export_csv(source=src, url=url, cell=cell, credentials=credentials, config=config)
+    import_csv(source=src, url=url, cell=cell, credentials=credentials, config=config)
 
