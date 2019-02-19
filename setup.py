@@ -26,7 +26,7 @@ setup(
     },
     license='BSD',
     include_package_data=True,
-    description='Export CSV files to Google Sheets',
+    description='Export CSV files to Google Spreadsheets',
     long_description=open('README.rst', 'r', encoding='utf-8').read(),
     url='https://github.com/dlancer/csv-export-gsheets',
     author='dlancer',
