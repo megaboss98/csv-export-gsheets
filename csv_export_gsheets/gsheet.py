@@ -67,12 +67,14 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
     if '!' in cell:
         tab_name, cell = cell.split('!')
         worksheet = sheet.worksheet(tab_name)
+        clear_range = f'{tab_name}!'
     else:
         worksheet = sheet.sheet1
+        clear_range = ''
 
     # clear old values in the sheet
     row_col = utils.rowcol_to_a1(worksheet.row_count, worksheet.col_count)
-    clear_range = f'A1:{row_col}'
+    clear_range = f'{clear_range}A1:{row_col}'
     sheet.values_clear(clear_range)
 
     first_row, first_column = utils.a1_to_rowcol(cell)
