@@ -50,14 +50,14 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
     if isinstance(source, str):
         try:
             infile = open(source, 'r')
-            if delimiter is not None:
+            if delimiter is None:
                 dialect = csv.Sniffer().sniff(infile.readline())
             infile.seek(0)
             csv_data = infile.read()
         except IOError as e:
             raise ValueError(f'source file error {str(e)}')
     elif isinstance(source, StringIO):
-        if delimiter is not None:
+        if delimiter is None:
             dialect = csv.Sniffer().sniff(source.readline())
         source.seek(0)
         csv_data = source.read()
