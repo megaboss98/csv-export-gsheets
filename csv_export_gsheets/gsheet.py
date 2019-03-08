@@ -12,7 +12,7 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
                url: Optional[str] = None,
                cell: Optional[str] = None,
                credentials: Optional[Union[str, dict]] = None,
-               config: Optional[Union[str, dict]] = None
+               config: Optional[Union[str, dict]] = None,
                delimiter: Optional[str] = None) -> dict:
     """
     Import CSV file to Google sheet
