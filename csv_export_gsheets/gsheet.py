@@ -12,7 +12,8 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
                url: Optional[str] = None,
                cell: Optional[str] = None,
                credentials: Optional[Union[str, dict]] = None,
-               config: Optional[Union[str, dict]] = None) -> dict:
+               config: Optional[Union[str, dict]] = None
+               delimiter: Optional[str] = None) -> dict:
     """
     Import CSV file to Google sheet
 
@@ -49,13 +50,15 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
     if isinstance(source, str):
         try:
             infile = open(source, 'r')
-            dialect = csv.Sniffer().sniff(infile.readline())
+            if delimiter is not None:
+                dialect = csv.Sniffer().sniff(infile.readline())
             infile.seek(0)
             csv_data = infile.read()
         except IOError as e:
             raise ValueError(f'source file error {str(e)}')
     elif isinstance(source, StringIO):
-        dialect = csv.Sniffer().sniff(source.readline())
+        if delimiter is not None:
+            dialect = csv.Sniffer().sniff(source.readline())
         source.seek(0)
         csv_data = source.read()
     else:
@@ -89,7 +92,7 @@ def import_csv(source: Optional[Union[str, StringIO]] = None,
                 },
                 "data": csv_data,
                 "type": 'PASTE_NORMAL',
-                "delimiter": dialect.delimiter
+                "delimiter": dialect.delimiter if delimiter is None else delimiter
             }
         }]
     }
